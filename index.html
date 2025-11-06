@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монтаж отопления в Минске - Профессиональные услуги</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" stroke="currentColor" fill="none"/>
+                        <path d="M8 12 L12 8 L16 12" stroke="currentColor" fill="none"/>
+                    </svg>
+                </div>
+                <span class="logo-text">LOGO</span>
+            </div>
+            <nav class="main-menu">
+                <a href="#services" class="menu-item">Услуги</a>
+                <a href="#prices" class="menu-item">Цены</a>
+                <a href="#portfolio" class="menu-item">Портфолио</a>
+                <a href="#about" class="menu-item">О нас</a>
+                <a href="#contacts" class="menu-item">Контакты</a>
+            </nav>
+            <div class="contact-info">
+                <a href="tel:+375297636612" class="phone-number">+ 375 (29) 763-66-12</a>
+            </div>
+            <button class="cta-button header-cta">Оставить заявку</button>
+        </div>
+    </header>
+
+    <!-- Request Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content request-modal-content">
+            <span class="modal-close request-close">&times;</span>
+            <h3 class="request-modal-title">Оставьте заявку</h3>
+            <form class="request-form" id="requestForm">
+                <div class="input-group">
+                    <input type="tel" class="input-field" placeholder="Телефон" required>
+                </div>
+                <div class="privacy-agreement">
+                    <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
+                </div>
+                <button type="submit" class="submit-button">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1 class="main-heading">Монтаж отопления под ключ за 3 дня с гарантией 5 лет</h1>
+                    <p class="subheading">Расчёт стоимости за 5 минут + бесплатный выезд инженера на замер</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <span class="checkmark-icon">✓</span>
+                            <span class="feature-text">Без переплат — цена по договору</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="checkmark-icon">✓</span>
+                            <span class="feature-text">Гарантия 5 лет на монтаж</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="checkmark-icon">✓</span>
+                            <span class="feature-text">16+ лет опыта</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hero-right">
+                    <div class="form-card">
+                        <h2 class="form-title">Получите расчёт стоимости прямо сейчас</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="input-group">
+                                <input type="text" class="input-field" placeholder="Имя" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="tel" class="input-field" placeholder="Телефон" required>
+                            </div>
+                            <button type="submit" class="submit-button">Получить расчёт</button>
+                            <p class="additional-text">Инженер свяжется с вами в течение 10 минут</p>
+                            <div class="privacy-agreement">
+                                <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators Section -->
+    <section class="trust-indicators">
+        <div class="container">
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="icon">🔨</div>
+                    <div class="icon-label">Опыт 16+ лет</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon">📄</div>
+                    <div class="icon-label">Договор</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon">🏢</div>
+                    <div class="icon-label">300+ объектов</div>
+                </div>
+                <div class="icon-item">
+                    <div class="icon">💰</div>
+                    <div class="icon-label">Без предоплаты</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-heading">Виды работ</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">Монтаж</h3>
+                    <p class="service-description">Профессиональная установка систем отопления любой сложности с соблюдением всех норм и стандартов.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3 class="service-title">Демонтаж</h3>
+                    <p class="service-description">Аккуратный демонтаж старых систем отопления без повреждения отделки и конструкций.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3 class="service-title">Проектирование</h3>
+                    <p class="service-description">Разработка индивидуальных проектов отопительных систем с учётом всех особенностей объекта.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">Подбор оборудования</h3>
+                    <p class="service-description">Консультация и подбор оптимального оборудования для вашего дома или офиса.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3 class="service-title">Реконструкция</h3>
+                    <p class="service-description">Модернизация и реконструкция существующих систем отопления для повышения эффективности.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🗑️</div>
+                    <h3 class="service-title">Вывоз мусора</h3>
+                    <p class="service-description">Убираем и вывозим за собой весь мусор после выполнения работ, оставляя помещение в чистоте.</p>
+                </div>
+            </div>
+            <div class="consultation-block">
+                <p class="consultation-text">Получить бесплатную консультацию</p>
+                <button class="cta-button consultation-button">Консультация</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Modal -->
+    <div id="consultationModal" class="modal">
+        <div class="modal-content consultation-modal-content">
+            <span class="modal-close consultation-close">&times;</span>
+            <h3 class="consultation-modal-title">Оставьте свой телефон и наш инженер перезвонит вам в течение 10 минут</h3>
+            <form class="consultation-form" id="consultationForm">
+                <div class="input-group">
+                    <input type="tel" class="input-field" placeholder="Телефон" required>
+                </div>
+                <div class="privacy-agreement">
+                    <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
+                </div>
+                <button type="submit" class="submit-button">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- How We Work Section -->
+    <section class="how-we-work-section">
+        <div class="container">
+            <h2 class="section-heading">Как мы работаем</h2>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📞</div>
+                    <h3 class="step-title">Заявка</h3>
+                    <p class="step-description">Оставляете заявку на сайте или по телефону</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">🚗</div>
+                    <h3 class="step-title">Выезд</h3>
+                    <p class="step-description">Бесплатный выезд инженера на объект для замера</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">📄</div>
+                    <h3 class="step-title">Договор</h3>
+                    <p class="step-description">Заключаем договор с фиксированной стоимостью</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">🔨</div>
+                    <h3 class="step-title">Монтаж</h3>
+                    <p class="step-description">Выполняем работы в согласованные сроки</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">✅</div>
+                    <h3 class="step-title">Сдача и гарантия</h3>
+                    <p class="step-description">Сдача объекта и предоставление гарантии 5 лет</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates-section">
+        <div class="container">
+            <h2 class="section-heading">Наши сертификаты</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item" data-cert="1">
+                    <div class="certificate-placeholder">Сертификат 1</div>
+                </div>
+                <div class="certificate-item" data-cert="2">
+                    <div class="certificate-placeholder">Сертификат 2</div>
+                </div>
+                <div class="certificate-item" data-cert="3">
+                    <div class="certificate-placeholder">Сертификат 3</div>
+                </div>
+                <div class="certificate-item" data-cert="4">
+                    <div class="certificate-placeholder">Лицензия</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Certificates -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" src="" alt="Сертификат" class="modal-image">
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-heading">Примеры работ</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image-placeholder">Фото проекта 1</div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Частный дом, Минск</h3>
+                        <p class="portfolio-description">Монтаж системы отопления в двухэтажном доме площадью 180 м²</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-placeholder">Фото проекта 2</div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Квартира, Минск</h3>
+                        <p class="portfolio-description">Реконструкция отопительной системы в квартире 95 м²</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-placeholder">Фото проекта 3</div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Офисное помещение</h3>
+                        <p class="portfolio-description">Установка системы отопления в офисном здании 250 м²</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-placeholder">Фото проекта 4</div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Коттедж, Минский район</h3>
+                        <p class="portfolio-description">Проектирование и монтаж отопления под ключ 220 м²</p>
+                    </div>
+                </div>
+            </div>
+            <div class="consultation-block">
+                <p class="consultation-text">Получить бесплатную консультацию</p>
+                <button class="cta-button consultation-button">Консультация</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-heading">Отзывы наших клиентов</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">А</div>
+                        <div class="review-author">
+                            <h4 class="review-name">Александр Иванов</h4>
+                            <p class="review-date">15.01.2024</p>
+                        </div>
+                    </div>
+                    <p class="review-text">Очень доволен работой! Монтаж выполнен качественно и в срок. Специалисты профессиональные, всё объяснили и показали. Рекомендую!</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">М</div>
+                        <div class="review-author">
+                            <h4 class="review-name">Мария Петрова</h4>
+                            <p class="review-date">08.12.2023</p>
+                        </div>
+                    </div>
+                    <p class="review-text">Заказывали монтаж отопления в новом доме. Всё сделали быстро, аккуратно, без лишней пыли и грязи. Цена соответствует качеству.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Д</div>
+                        <div class="review-author">
+                            <h4 class="review-name">Дмитрий Сидоров</h4>
+                            <p class="review-date">22.11.2023</p>
+                        </div>
+                    </div>
+                    <p class="review-text">Отличная компания! Помогли с выбором оборудования, составили проект, выполнили монтаж. Работают профессионально и ответственно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-heading">Часто задаваемые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько времени занимает монтаж системы отопления?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Сроки монтажа зависят от сложности проекта и площади объекта. В среднем, монтаж системы отопления в частном доме занимает 3-5 дней, в квартире — 1-3 дня.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какая гарантия предоставляется на работы?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы предоставляем гарантию 5 лет на все виды монтажных работ. Гарантия распространяется на качество выполненных работ и используемые материалы.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Нужна ли предоплата?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Нет, мы работаем без предоплаты. Оплата производится после завершения работ и подписания акта приёмки.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли установить отопление в уже построенном доме?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, мы выполняем монтаж отопления как в новых, так и в уже построенных домах. Для существующих зданий разрабатывается индивидуальный проект с учётом особенностей объекта.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какое оборудование вы используете?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы работаем с проверенными производителями отопительного оборудования. Подбираем оборудование индивидуально под каждый проект, учитывая требования клиента и особенности объекта.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts-section">
+        <div class="container">
+            <div class="contacts-wrapper">
+                <div class="contacts-info">
+                    <h2 class="contacts-heading">Контакты</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3 class="contact-label">Телефон</h3>
+                            <a href="tel:+375297636612" class="contact-value">+375 (29) 763-66-12</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3 class="contact-label">Email</h3>
+                            <a href="mailto:info@otoplenie.by" class="contact-value">info@otoplenie.by</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <h3 class="contact-label">Мессенджеры</h3>
+                            <div class="messengers">
+                                <a href="https://t.me/otoplenie_minsk" class="messenger-link" target="_blank">Telegram</a>
+                                <a href="https://wa.me/375297636612" class="messenger-link" target="_blank">WhatsApp</a>
+                                <a href="viber://chat?number=375297636612" class="messenger-link" target="_blank">Viber</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3 class="contact-label">Адрес</h3>
+                            <p class="contact-value">г. Минск, ул. Примерная, д. 10</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts-form-wrapper">
+                    <div class="form-card">
+                        <h3 class="form-title">Обратная связь</h3>
+                        <form class="contact-form" id="contactsForm">
+                            <div class="input-group">
+                                <input type="tel" class="input-field" placeholder="Телефон" required>
+                            </div>
+                            <div class="input-group">
+                                <textarea class="input-field textarea-field" placeholder="Ваше сообщение" rows="4"></textarea>
+                            </div>
+                            <div class="privacy-agreement">
+                                <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
+                            </div>
+                            <button type="submit" class="submit-button">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-info-item">
+                    <strong>Телефоны:</strong>
+                    <a href="tel:+375297636612" class="footer-link">+375297636612</a>
+                </div>
+                <div class="footer-info-item">
+                    <strong>Прием звонков:</strong>
+                    <span>пн-пт с 9:00 до 20.00, сб-вс - ВЫХОДНОЙ.</span>
+                </div>
+                <div class="footer-info-item">
+                    <strong>Наш e-mail:</strong>
+                    <a href="mailto:mirkotlov.by@gmail.com" class="footer-link">mirkotlov.by@gmail.com</a>
+                </div>
+                <div class="footer-info-item">
+                    <strong>Юридический адрес:</strong>
+                    <span>Минск ул. Золотая горка д.11</span>
+                </div>
+                <div class="footer-info-item">
+                    <span>ИП Петрашкевич Александр Васильевич</span>
+                </div>
+                <div class="footer-info-item">
+                    <span>УНП 193212306</span>
+                </div>
+                <div class="footer-info-item">
+                    <span>Интернет-магазин - Mirkotlov.by зарегистрирован в Торговом реестре Республики Беларусь</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
