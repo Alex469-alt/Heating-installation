@@ -1363,3 +1363,54 @@ body {
     }
 }
 
+/* Mobile Phone Widget */
+.mobile-phone-widget {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.mobile-phone-widget:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-phone-widget:active {
+    transform: scale(0.95);
+}
+
+.mobile-phone-widget svg {
+    width: 28px;
+    height: 28px;
+    stroke: #FFFFFF;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Show widget only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-phone-widget {
+        display: flex;
+    }
+}
+
