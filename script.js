@@ -110,17 +110,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('certificateModal');
     const certificateItems = document.querySelectorAll('.certificate-item');
     const modalImage = document.getElementById('modalImage');
-    const modalClose = document.querySelector('.modal-close');
+    const modalClose = document.querySelector('#certificateModal .modal-close');
 
     certificateItems.forEach(function(item) {
         item.addEventListener('click', function() {
             const certId = item.getAttribute('data-cert');
-            // In a real implementation, you would set the actual image path here
-            // For now, we'll use a placeholder
-            modalImage.src = 'images/certificate-' + certId + '.jpg';
-            modalImage.alt = 'Сертификат ' + certId;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            const certificateImg = item.querySelector('.certificate-image');
+            if (certificateImg) {
+                modalImage.src = certificateImg.src;
+                modalImage.alt = certificateImg.alt || 'Сертификат ' + certId;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
         });
     });
 
@@ -137,6 +138,61 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Portfolio Modal
+    const portfolioModal = document.getElementById('portfolioModal');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const portfolioModalImage = document.getElementById('portfolioModalImage');
+    const portfolioModalClose = document.querySelector('.portfolio-modal-close');
+
+    portfolioItems.forEach(function(item) {
+        const imageWrapper = item.querySelector('.portfolio-image-wrapper');
+        if (imageWrapper) {
+            imageWrapper.addEventListener('click', function() {
+                const portfolioImg = item.querySelector('.portfolio-image');
+                if (portfolioImg) {
+                    portfolioModalImage.src = portfolioImg.src;
+                    portfolioModalImage.alt = portfolioImg.alt || 'Пример работы';
+                    portfolioModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        }
+    });
+
+    // Close portfolio modal
+    if (portfolioModalClose) {
+        portfolioModalClose.addEventListener('click', function() {
+            portfolioModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close portfolio modal when clicking outside
+    if (portfolioModal) {
+        window.addEventListener('click', function(event) {
+            if (event.target === portfolioModal) {
+                portfolioModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close portfolio modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && portfolioModal.style.display === 'block') {
+                portfolioModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });

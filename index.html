@@ -224,16 +224,22 @@
             <h2 class="section-heading">Наши сертификаты</h2>
             <div class="certificates-grid">
                 <div class="certificate-item" data-cert="1">
-                    <div class="certificate-placeholder">Сертификат 1</div>
+                    <img src="images/sert1.webp" alt="Сертификат 1" class="certificate-image">
                 </div>
                 <div class="certificate-item" data-cert="2">
-                    <div class="certificate-placeholder">Сертификат 2</div>
+                    <img src="images/sert2.webp" alt="Сертификат 2" class="certificate-image">
                 </div>
                 <div class="certificate-item" data-cert="3">
-                    <div class="certificate-placeholder">Сертификат 3</div>
+                    <img src="images/sert3.webp" alt="Сертификат 3" class="certificate-image">
                 </div>
                 <div class="certificate-item" data-cert="4">
-                    <div class="certificate-placeholder">Лицензия</div>
+                    <img src="images/sert4.webp" alt="Сертификат 4" class="certificate-image">
+                </div>
+                <div class="certificate-item" data-cert="5">
+                    <img src="images/sert5.webp" alt="Сертификат 5" class="certificate-image">
+                </div>
+                <div class="certificate-item" data-cert="6">
+                    <img src="images/sert6.webp" alt="Сертификат 6" class="certificate-image">
                 </div>
             </div>
         </div>
@@ -247,37 +253,71 @@
         </div>
     </div>
 
+    <!-- Modal for Portfolio -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close portfolio-modal-close">&times;</span>
+            <img id="portfolioModalImage" src="" alt="Пример работы" class="modal-image">
+        </div>
+    </div>
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio-section">
         <div class="container">
             <h2 class="section-heading">Примеры работ</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image-placeholder">Фото проекта 1</div>
+                <div class="portfolio-item" data-portfolio="1">
+                    <div class="portfolio-image-wrapper">
+                        <img src="images/jobs1.webp" alt="Частный дом, ул. Независимости, Минск" class="portfolio-image">
+                    </div>
                     <div class="portfolio-info">
-                        <h3 class="portfolio-title">Частный дом, Минск</h3>
+                        <h3 class="portfolio-title">Частный дом, ул. Независимости, Минск</h3>
                         <p class="portfolio-description">Монтаж системы отопления в двухэтажном доме площадью 180 м²</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image-placeholder">Фото проекта 2</div>
+                <div class="portfolio-item" data-portfolio="2">
+                    <div class="portfolio-image-wrapper">
+                        <img src="images/jobs5.webp" alt="Квартира, пр. Победителей, Минск" class="portfolio-image">
+                    </div>
                     <div class="portfolio-info">
-                        <h3 class="portfolio-title">Квартира, Минск</h3>
+                        <h3 class="portfolio-title">Квартира, пр. Победителей, Минск</h3>
                         <p class="portfolio-description">Реконструкция отопительной системы в квартире 95 м²</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image-placeholder">Фото проекта 3</div>
+                <div class="portfolio-item" data-portfolio="3">
+                    <div class="portfolio-image-wrapper">
+                        <img src="images/jobs10.webp" alt="Офисное помещение, ул. Ленина, Минск" class="portfolio-image">
+                    </div>
                     <div class="portfolio-info">
-                        <h3 class="portfolio-title">Офисное помещение</h3>
-                        <p class="portfolio-description">Установка системы отопления в офисном здании 250 м²</p>
+                        <h3 class="portfolio-title">Частный дом, ул. Ленина, Минск</h3>
+                        <p class="portfolio-description">Установка системы отопления и теплых полов офисном здании 250 м²</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image-placeholder">Фото проекта 4</div>
+                <div class="portfolio-item" data-portfolio="4">
+                    <div class="portfolio-image-wrapper">
+                        <img src="images/jobs15.webp" alt="Коттедж, д. Боровляны, Минский район" class="portfolio-image">
+                    </div>
                     <div class="portfolio-info">
-                        <h3 class="portfolio-title">Коттедж, Минский район</h3>
+                        <h3 class="portfolio-title">Коттедж, д. Боровляны, Минский район</h3>
                         <p class="portfolio-description">Проектирование и монтаж отопления под ключ 220 м²</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-portfolio="5">
+                    <div class="portfolio-image-wrapper">
+                        <img src="images/jobs24.webp" alt="Частный дом, д. Ратомка, Минский район" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Частный дом, д. Ратомка, Минский район</h3>
+                        <p class="portfolio-description">Монтаж системы отопления и теплых полов в одноэтажном доме площадью 150 м²</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-portfolio="6">
+                    <div class="portfolio-image-wrapper">
+                        <img src="images/jobs28.webp" alt="Квартира, ул. Кальварийская, Минск" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Квартира, ул. Кальварийская, Минск</h3>
+                        <p class="portfolio-description">Модернизация отопительной системы в квартире 120 м²</p>
                     </div>
                 </div>
             </div>
