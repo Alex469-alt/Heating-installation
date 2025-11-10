@@ -1,3 +1,65 @@
+// EmailJS Configuration
+// Для работы необходимо:
+// 1. Зарегистрироваться на https://www.emailjs.com/
+// 2. Создать Email Service (Gmail, Outlook и т.д.)
+// 3. Создать Email Template
+// 4. Получить Public Key (User ID)
+// 5. Заменить значения ниже на свои
+
+const EMAILJS_CONFIG = {
+    SERVICE_ID: 'YOUR_SERVICE_ID', // Замените на ваш Service ID
+    TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // Замените на ваш Template ID
+    PUBLIC_KEY: 'YOUR_PUBLIC_KEY' // Замените на ваш Public Key (User ID)
+};
+
+// Initialize EmailJS
+if (typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+}
+
+// Function to send email
+function sendEmailToAdmin(formData) {
+    // Проверяем, что EmailJS загружен и настроен
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS не загружен');
+        return Promise.resolve(); // Продолжаем работу даже если EmailJS не настроен
+    }
+    
+    // Проверяем, что конфигурация настроена
+    if (EMAILJS_CONFIG.SERVICE_ID === 'YOUR_SERVICE_ID' || 
+        EMAILJS_CONFIG.TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
+        EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+        console.warn('EmailJS не настроен. Пропускаем отправку email.');
+        return Promise.resolve(); // Продолжаем работу даже если EmailJS не настроен
+    }
+    
+    const templateParams = {
+        to_email: 'denis.bakhar@yandex.ru',
+        from_name: formData.name || 'Не указано',
+        phone: formData.phone,
+        message: formData.message || 'Нет комментария',
+        form_type: formData.formType || 'Заявка',
+        date: new Date().toLocaleString('ru-RU', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+    };
+    
+    return emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams
+    ).then(function(response) {
+        console.log('Email успешно отправлен!', response.status, response.text);
+    }, function(error) {
+        console.error('Ошибка отправки email:', error);
+        // Не блокируем редирект даже при ошибке отправки
+    });
+}
+
 // Form submission handler
 document.addEventListener('DOMContentLoaded', function() {
     // Function to validate Belarus phone number
@@ -138,11 +200,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate form submission
-            console.log('Form submitted:', { name, phone });
+            // Prepare form data
+            const formData = {
+                name: name.trim(),
+                phone: phone.trim(),
+                message: '',
+                formType: 'Заявка на расчёт стоимости'
+            };
             
-            // Redirect to thanks page
-            window.location.href = 'thanks.html';
+            console.log('Form submitted:', formData);
+            
+            // Send email and redirect
+            sendEmailToAdmin(formData).then(function() {
+                // Redirect to thanks page after email is sent (or skipped)
+                window.location.href = 'thanks.html';
+            });
         });
     }
 
@@ -203,10 +275,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            console.log('Contacts form submitted:', { phone, message });
+            // Prepare form data
+            const formData = {
+                name: '',
+                phone: phone.trim(),
+                message: message.trim(),
+                formType: 'Обратная связь'
+            };
             
-            // Redirect to thanks page
-            window.location.href = 'thanks.html';
+            console.log('Contacts form submitted:', formData);
+            
+            // Send email and redirect
+            sendEmailToAdmin(formData).then(function() {
+                // Redirect to thanks page after email is sent (or skipped)
+                window.location.href = 'thanks.html';
+            });
         });
     }
 
@@ -396,10 +479,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            console.log('Consultation form submitted:', { phone });
+            // Prepare form data
+            const formData = {
+                name: '',
+                phone: phone.trim(),
+                message: '',
+                formType: 'Запрос на консультацию'
+            };
             
-            // Redirect to thanks page
-            window.location.href = 'thanks.html';
+            console.log('Consultation form submitted:', formData);
+            
+            // Send email and redirect
+            sendEmailToAdmin(formData).then(function() {
+                // Close modal first
+                if (consultationModal) {
+                    consultationModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                // Redirect to thanks page after email is sent (or skipped)
+                window.location.href = 'thanks.html';
+            });
         });
     }
 
@@ -447,10 +546,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            console.log('Request form submitted:', { phone });
+            // Prepare form data
+            const formData = {
+                name: '',
+                phone: phone.trim(),
+                message: '',
+                formType: 'Заявка (модальное окно)'
+            };
             
-            // Redirect to thanks page
-            window.location.href = 'thanks.html';
+            console.log('Request form submitted:', formData);
+            
+            // Send email and redirect
+            sendEmailToAdmin(formData).then(function() {
+                // Close modal first
+                if (requestModal) {
+                    requestModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                // Redirect to thanks page after email is sent (or skipped)
+                window.location.href = 'thanks.html';
+            });
         });
     }
 });
