@@ -11,19 +11,12 @@
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <div class="logo-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="2" width="20" height="20" stroke="currentColor" fill="none"/>
-                        <path d="M8 12 L12 8 L16 12" stroke="currentColor" fill="none"/>
-                    </svg>
-                </div>
-                <span class="logo-text">LOGO</span>
+                <img src="images/logotip-mirkotlov-news3.webp" alt="MirKotlov" class="logo-image">
             </div>
             <nav class="main-menu">
                 <a href="#services" class="menu-item">Услуги</a>
-                <a href="#prices" class="menu-item">Цены</a>
                 <a href="#portfolio" class="menu-item">Портфолио</a>
-                <a href="#about" class="menu-item">О нас</a>
+                <a href="#certificates" class="menu-item">Сертификаты</a>
                 <a href="#contacts" class="menu-item">Контакты</a>
             </nav>
             <div class="contact-info">
@@ -40,7 +33,7 @@
             <h3 class="request-modal-title">Оставьте заявку</h3>
             <form class="request-form" id="requestForm">
                 <div class="input-group">
-                    <input type="tel" class="input-field" placeholder="Телефон" required>
+                    <input type="tel" class="input-field phone-input" placeholder="+375 (XX) XXX-XX-XX" required>
                 </div>
                 <div class="privacy-agreement">
                     <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
@@ -78,10 +71,10 @@
                         <h2 class="form-title">Получите расчёт стоимости прямо сейчас</h2>
                         <form class="contact-form" id="contactForm">
                             <div class="input-group">
-                                <input type="text" class="input-field" placeholder="Имя" required>
+                                <input type="text" class="input-field" placeholder="Имя">
                             </div>
                             <div class="input-group">
-                                <input type="tel" class="input-field" placeholder="Телефон" required>
+                                <input type="tel" class="input-field phone-input" placeholder="+375 (XX) XXX-XX-XX" required>
                             </div>
                             <button type="submit" class="submit-button">Получить расчёт</button>
                             <p class="additional-text">Инженер свяжется с вами в течение 10 минут</p>
@@ -169,7 +162,7 @@
             <h3 class="consultation-modal-title">Оставьте свой телефон и наш инженер перезвонит вам в течение 10 минут</h3>
             <form class="consultation-form" id="consultationForm">
                 <div class="input-group">
-                    <input type="tel" class="input-field" placeholder="Телефон" required>
+                    <input type="tel" class="input-field phone-input" placeholder="+375 (XX) XXX-XX-XX" required>
                 </div>
                 <div class="privacy-agreement">
                     <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
@@ -219,7 +212,7 @@
     </section>
 
     <!-- Certificates Section -->
-    <section class="certificates-section">
+    <section id="certificates" class="certificates-section">
         <div class="container">
             <h2 class="section-heading">Наши сертификаты</h2>
             <div class="certificates-grid">
@@ -337,32 +330,37 @@
                     <div class="review-header">
                         <div class="review-avatar">А</div>
                         <div class="review-author">
-                            <h4 class="review-name">Александр Иванов</h4>
-                            <p class="review-date">15.01.2024</p>
+                            <h4 class="review-name">Алекс Лях</h4>
+                            <p class="review-date">10.11.2025</p>
                         </div>
                     </div>
-                    <p class="review-text">Очень доволен работой! Монтаж выполнен качественно и в срок. Специалисты профессиональные, всё объяснили и показали. Рекомендую!</p>
+                    <p class="review-text">Заказывал монтаж отопления — всё выполнено аккуратно, быстро и качественно. Система работает отлично, в доме тепло и комфортно. Отличная работа и профессиональный подход!</p>
                 </div>
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="review-avatar">М</div>
+                        <div class="review-avatar">А</div>
                         <div class="review-author">
-                            <h4 class="review-name">Мария Петрова</h4>
+                            <h4 class="review-name">Анастасия Петрашкевич</h4>
                             <p class="review-date">08.12.2023</p>
                         </div>
                     </div>
-                    <p class="review-text">Заказывали монтаж отопления в новом доме. Всё сделали быстро, аккуратно, без лишней пыли и грязи. Цена соответствует качеству.</p>
+                    <p class="review-text">Добрый день. Хочу посоветовать этот магазин! Мне нужно было сделать на даче отопление, водоснабжение. В магазине миркотлов мне подобрали все оборудование( электрокотел,бойлер и различное оборудование) привезли на следующий день и за 2 дня сделали все работы. Все оккуратно и красиво. Цена адекватная, на оборудование и материал сделали хорошую скидку!Советую обращятся к ребятам и вы не пожалеете! Спасибо!</p>
                 </div>
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="review-avatar">Д</div>
+                        <div class="review-avatar">И</div>
                         <div class="review-author">
-                            <h4 class="review-name">Дмитрий Сидоров</h4>
+                            <h4 class="review-name">Игорь Тимашков</h4>
                             <p class="review-date">22.11.2023</p>
                         </div>
                     </div>
-                    <p class="review-text">Отличная компания! Помогли с выбором оборудования, составили проект, выполнили монтаж. Работают профессионально и ответственно.</p>
+                    <p class="review-text">Покупали котёл по кредитной линии, в четверг перевели деньги, а в пятницу в 16 часов, котёл и комплектующие были у нас!!))) живём в 400 км от Минска
+                        Спасибо вам за работу!</p>
                 </div>
+            </div>
+            <div class="reviews-more-block">
+                <p class="reviews-more-text">Посмотреть больше отзывов на Google Maps, а также оставить свой можно здесь</p>
+                <a href="https://www.google.com/maps/place/MirKotlov/@53.9125601,27.5839838,17z/data=!4m8!3m7!1s0x46dbd371143992cb:0xd52104bba58280e9!8m2!3d53.9125601!4d27.5839838!9m1!1b1!16s%2Fg%2F11h3vf4s3s?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="cta-button reviews-more-button">Больше отзывов</a>
             </div>
         </div>
     </section>
@@ -465,10 +463,10 @@
                         <h3 class="form-title">Обратная связь</h3>
                         <form class="contact-form" id="contactsForm">
                             <div class="input-group">
-                                <input type="tel" class="input-field" placeholder="Телефон" required>
+                                <input type="tel" class="input-field phone-input" placeholder="+375 (XX) XXX-XX-XX" required>
                             </div>
                             <div class="input-group">
-                                <textarea class="input-field textarea-field" placeholder="Ваше сообщение" rows="4"></textarea>
+                                <textarea class="input-field textarea-field" placeholder="Ваше сообщение (необязательно)" rows="4"></textarea>
                             </div>
                             <div class="privacy-agreement">
                                 <p class="privacy-text">Согласен с <a href="https://mirkotlov.by/politika-konfidencialnosti/" target="_blank" class="privacy-link">политикой конфиденциальности</a></p>
@@ -477,6 +475,10 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="catalog-block">
+                <p class="catalog-text">Выбрать и приобрести необходимое оборудование для монтажа системы отопления можно в нашем магазине</p>
+                <a href="https://mirkotlov.by/" target="_blank" rel="noopener noreferrer" class="cta-button catalog-button">Перейти в каталог</a>
             </div>
         </div>
     </section>
@@ -510,6 +512,10 @@
                 <div class="footer-info-item">
                     <span>Интернет-магазин - Mirkotlov.by зарегистрирован в Торговом реестре Республики Беларусь</span>
                 </div>
+            </div>
+            <div class="footer-developer-block">
+                <p class="footer-developer-text">Понравился сайт?</p>
+                <a href="https://next-pixel87.vercel.app/website.creation.html" target="_blank" rel="noopener noreferrer" class="footer-developer-button">Связаться с разработчиком</a>
             </div>
         </div>
     </footer>

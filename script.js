@@ -1,5 +1,119 @@
 // Form submission handler
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to validate Belarus phone number
+    function validateBelarusPhone(phone) {
+        if (!phone) return false;
+        
+        // Remove all spaces, dashes, parentheses, and plus signs for validation
+        const cleaned = phone.replace(/[\s\-\(\)\+]/g, '');
+        
+        // Extract only digits
+        const digitsOnly = cleaned.replace(/\D/g, '');
+        
+        // Check if it starts with 375 (Belarus country code) or 8 (local format)
+        // Belarus numbers: +375 (XX) XXX-XX-XX or 8 (0XX) XXX-XX-XX
+        let phoneDigits = digitsOnly;
+        
+        // If starts with 8, convert to international format (8 -> 375)
+        if (phoneDigits.startsWith('8') && phoneDigits.length === 11) {
+            phoneDigits = '375' + phoneDigits.substring(1);
+        }
+        
+        // Check if it starts with 375 (Belarus country code)
+        if (!phoneDigits.startsWith('375')) {
+            return false;
+        }
+        
+        // Check if it has exactly 12 digits (375 + 9 digits)
+        // Belarus format: 375 + 2-3 digits (operator/area code) + 6-7 digits
+        if (phoneDigits.length !== 12) {
+            return false;
+        }
+        
+        // Additional check: ensure all digits after 375 are valid (not all zeros, etc.)
+        const numberPart = phoneDigits.substring(3);
+        if (numberPart === '000000000' || numberPart.length !== 9) {
+            return false;
+        }
+        
+        return true;
+    }
+
+    // Phone input formatting function
+    function formatPhoneInput(input) {
+        let value = input.value.replace(/\D/g, ''); // Remove all non-digits
+        
+        // If starts with 8, replace with 375
+        if (value.startsWith('8') && value.length <= 11) {
+            value = '375' + value.substring(1);
+        }
+        
+        // If empty or doesn't start with 375, ensure it starts with 375
+        if (value.length === 0) {
+            value = '375';
+        } else if (!value.startsWith('375')) {
+            // If user typed something that doesn't start with 375, prepend it
+            if (value[0] === '3' && value[1] === '7' && value[2] === '5') {
+                // Already has 375
+            } else {
+                value = '375' + value;
+            }
+        }
+        
+        // Limit to 12 digits (375 + 9 digits)
+        if (value.length > 12) {
+            value = value.substring(0, 12);
+        }
+        
+        // Format: +375 (XX) XXX-XX-XX
+        let formatted = '+375';
+        if (value.length > 3) {
+            const operatorCode = value.substring(3, 5);
+            formatted += ' (' + operatorCode;
+            if (value.length > 5) {
+                const firstPart = value.substring(5, 8);
+                formatted += ') ' + firstPart;
+                if (value.length > 8) {
+                    const secondPart = value.substring(8, 10);
+                    formatted += '-' + secondPart;
+                    if (value.length > 10) {
+                        const thirdPart = value.substring(10, 12);
+                        formatted += '-' + thirdPart;
+                    }
+                }
+            }
+        }
+        
+        input.value = formatted;
+    }
+
+    // Initialize phone input formatting for all phone inputs
+    const phoneInputs = document.querySelectorAll('.phone-input');
+    phoneInputs.forEach(function(input) {
+        // Format on input
+        input.addEventListener('input', function() {
+            formatPhoneInput(input);
+        });
+        
+        // Format on focus if empty
+        input.addEventListener('focus', function() {
+            if (!input.value || input.value === '') {
+                input.value = '+375';
+            }
+        });
+        
+        // Format on blur if incomplete
+        input.addEventListener('blur', function() {
+            if (input.value && input.value.length < 8) {
+                // If user only typed a few digits, keep +375
+                let digits = input.value.replace(/\D/g, '');
+                if (digits.length < 12) {
+                    input.value = '+375';
+                }
+            }
+        });
+    });
+
     const contactForm = document.getElementById('contactForm');
     const headerCta = document.querySelector('.header-cta');
 
@@ -9,23 +123,26 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // Get form data
-            const name = contactForm.querySelector('input[type="text"]').value;
+            const name = contactForm.querySelector('input[type="text"]')?.value || '';
             const phone = contactForm.querySelector('input[type="tel"]').value;
 
-            // Simple validation
-            if (!name || !phone) {
-                alert('Пожалуйста, заполните все обязательные поля');
+            // Validate phone (required)
+            if (!phone || phone.trim() === '' || phone === '+375') {
+                alert('Пожалуйста, введите номер телефона');
+                return;
+            }
+
+            // Validate Belarus phone number
+            if (!validateBelarusPhone(phone)) {
+                alert('Пожалуйста, введите корректный номер телефона Беларуси.\nФормат: +375 (XX) XXX-XX-XX');
                 return;
             }
 
             // Simulate form submission
             console.log('Form submitted:', { name, phone });
             
-            // Show success message
-            alert('Спасибо! Ваша заявка принята. Инженер свяжется с вами в течение 10 минут.');
-            
-            // Reset form
-            contactForm.reset();
+            // Redirect to thanks page
+            window.location.href = 'thanks.html';
         });
     }
 
@@ -72,16 +189,24 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const phone = contactsForm.querySelector('input[type="tel"]').value;
-            const message = contactsForm.querySelector('textarea').value;
+            const message = contactsForm.querySelector('textarea')?.value || '';
 
-            if (!phone) {
-                alert('Пожалуйста, заполните поле "Телефон"');
+            // Validate phone (required)
+            if (!phone || phone.trim() === '' || phone === '+375') {
+                alert('Пожалуйста, введите номер телефона');
+                return;
+            }
+
+            // Validate Belarus phone number
+            if (!validateBelarusPhone(phone)) {
+                alert('Пожалуйста, введите корректный номер телефона Беларуси.\nФормат: +375 (XX) XXX-XX-XX');
                 return;
             }
 
             console.log('Contacts form submitted:', { phone, message });
-            alert('Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.');
-            contactsForm.reset();
+            
+            // Redirect to thanks page
+            window.location.href = 'thanks.html';
         });
     }
 
@@ -259,18 +384,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const phone = consultationForm.querySelector('input[type="tel"]').value;
 
-            if (!phone) {
+            // Validate phone (required)
+            if (!phone || phone.trim() === '' || phone === '+375') {
                 alert('Пожалуйста, введите номер телефона');
                 return;
             }
 
-            console.log('Consultation form submitted:', { phone });
-            alert('Спасибо! Наш инженер перезвонит вам в течение 10 минут.');
-            consultationForm.reset();
-            if (consultationModal) {
-                consultationModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            // Validate Belarus phone number
+            if (!validateBelarusPhone(phone)) {
+                alert('Пожалуйста, введите корректный номер телефона Беларуси.\nФормат: +375 (XX) XXX-XX-XX');
+                return;
             }
+
+            console.log('Consultation form submitted:', { phone });
+            
+            // Redirect to thanks page
+            window.location.href = 'thanks.html';
         });
     }
 
@@ -306,18 +435,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const phone = requestForm.querySelector('input[type="tel"]').value;
 
-            if (!phone) {
+            // Validate phone (required)
+            if (!phone || phone.trim() === '' || phone === '+375') {
                 alert('Пожалуйста, введите номер телефона');
                 return;
             }
 
-            console.log('Request form submitted:', { phone });
-            alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-            requestForm.reset();
-            if (requestModal) {
-                requestModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            // Validate Belarus phone number
+            if (!validateBelarusPhone(phone)) {
+                alert('Пожалуйста, введите корректный номер телефона Беларуси.\nФормат: +375 (XX) XXX-XX-XX');
+                return;
             }
+
+            console.log('Request form submitted:', { phone });
+            
+            // Redirect to thanks page
+            window.location.href = 'thanks.html';
         });
     }
 });

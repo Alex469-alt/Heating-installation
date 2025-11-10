@@ -46,6 +46,15 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #000000;
+    height: 40px;
+}
+
+.logo-image {
+    height: 100%;
+    width: auto;
+    max-height: 40px;
+    object-fit: contain;
+    display: block;
 }
 
 .logo-icon {
@@ -861,6 +870,23 @@ body {
     color: #000000;
 }
 
+.reviews-more-block {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.reviews-more-text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 24px;
+}
+
+.reviews-more-button {
+    display: inline-block;
+    text-decoration: none;
+}
+
 /* FAQ Section */
 .faq-section {
     padding: 80px 0;
@@ -1027,6 +1053,28 @@ body {
     max-width: 500px;
 }
 
+.catalog-block {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid #E0E0E0;
+}
+
+.catalog-text {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.catalog-button {
+    display: inline-block;
+    text-decoration: none;
+}
+
 /* Footer */
 .footer {
     background-color: #2a2a2a;
@@ -1092,6 +1140,126 @@ body {
     opacity: 0.7;
 }
 
+.footer-developer-block {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-developer-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.footer-developer-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #2a2a2a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.footer-developer-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Thanks Section */
+.thanks-section {
+    padding: 120px 0;
+    background-color: #F8F8F8;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+.thanks-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.thanks-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0 auto 30px;
+}
+
+.thanks-heading {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.thanks-text {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.thanks-shop-block {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid #E0E0E0;
+}
+
+.thanks-shop-text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thanks-shop-button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.thanks-back-block {
+    margin-top: 40px;
+}
+
+.thanks-back-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.3s;
+}
+
+.thanks-back-link:hover {
+    opacity: 0.7;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 /* Responsive Design */
 
 /* Large Screens */
@@ -1132,6 +1300,33 @@ body {
         font-size: 40px;
     }
 
+    .thanks-section {
+        padding: 80px 0;
+    }
+
+    .thanks-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 42px;
+    }
+
+    .thanks-heading {
+        font-size: 40px;
+    }
+
+    .thanks-text {
+        font-size: 18px;
+    }
+
+    .thanks-shop-block {
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+
+    .thanks-shop-text {
+        font-size: 16px;
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1160,6 +1355,16 @@ body {
     .contacts-wrapper {
         gap: 40px;
     }
+
+    .catalog-block {
+        margin-top: 50px;
+        padding-top: 50px;
+    }
+
+    .footer-developer-block {
+        margin-top: 35px;
+        padding-top: 35px;
+    }
 }
 
 /* Mobile and Small Tablets */
@@ -1179,6 +1384,11 @@ body {
         font-size: 20px;
         width: 100%;
         margin-bottom: 10px;
+        height: 35px;
+    }
+
+    .logo-image {
+        max-height: 35px;
     }
 
     .main-menu {
@@ -1256,6 +1466,14 @@ body {
 @media (max-width: 480px) {
     .header-container {
         padding: 0 15px;
+    }
+
+    .logo {
+        height: 30px;
+    }
+
+    .logo-image {
+        max-height: 30px;
     }
 
     .main-menu {
@@ -1340,6 +1558,38 @@ body {
     .section-heading {
         font-size: 32px;
         margin-bottom: 30px;
+    }
+
+    .thanks-section {
+        padding: 60px 0;
+        min-height: calc(100vh - 150px);
+    }
+
+    .thanks-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 36px;
+        margin-bottom: 24px;
+    }
+
+    .thanks-heading {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .thanks-text {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .thanks-shop-block {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    .thanks-shop-text {
+        font-size: 16px;
+        margin-bottom: 20px;
     }
 
     .services-section,
@@ -1442,6 +1692,15 @@ body {
         gap: 20px;
     }
 
+    .reviews-more-block {
+        margin-top: 40px;
+    }
+
+    .reviews-more-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
     .contacts-wrapper {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1455,6 +1714,16 @@ body {
         max-width: 100%;
     }
 
+    .catalog-block {
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+
+    .catalog-text {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
     .footer-container {
         padding: 0 20px;
     }
@@ -1464,6 +1733,56 @@ body {
     }
 
     .footer-info-item {
+        font-size: 14px;
+    }
+
+    .footer-developer-block {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    .footer-developer-text {
+        font-size: 14px;
+    }
+
+    .footer-developer-button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .thanks-section {
+        padding: 40px 0;
+        min-height: calc(100vh - 120px);
+    }
+
+    .thanks-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .thanks-heading {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .thanks-text {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .thanks-shop-block {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    .thanks-shop-text {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .thanks-back-link {
         font-size: 14px;
     }
 }
