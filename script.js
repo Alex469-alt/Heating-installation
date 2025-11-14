@@ -1,41 +1,10 @@
-// EmailJS Configuration
-// Для работы необходимо:
-// 1. Зарегистрироваться на https://www.emailjs.com/
-// 2. Создать Email Service (Gmail, Outlook и т.д.)
-// 3. Создать Email Template
-// 4. Получить Public Key (User ID)
-// 5. Заменить значения ниже на свои
+// Webhook Configuration
+const WEBHOOK_URL = 'https://alex87ai.ru/webhook/19531654-806d-4b77-a3e2-2f6dd0bc9251';
 
-const EMAILJS_CONFIG = {
-    SERVICE_ID: 'YOUR_SERVICE_ID', // Замените на ваш Service ID
-    TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // Замените на ваш Template ID
-    PUBLIC_KEY: 'YOUR_PUBLIC_KEY' // Замените на ваш Public Key (User ID)
-};
-
-// Initialize EmailJS
-if (typeof emailjs !== 'undefined') {
-    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-}
-
-// Function to send email
-function sendEmailToAdmin(formData) {
-    // Проверяем, что EmailJS загружен и настроен
-    if (typeof emailjs === 'undefined') {
-        console.error('EmailJS не загружен');
-        return Promise.resolve(); // Продолжаем работу даже если EmailJS не настроен
-    }
-    
-    // Проверяем, что конфигурация настроена
-    if (EMAILJS_CONFIG.SERVICE_ID === 'YOUR_SERVICE_ID' || 
-        EMAILJS_CONFIG.TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
-        EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
-        console.warn('EmailJS не настроен. Пропускаем отправку email.');
-        return Promise.resolve(); // Продолжаем работу даже если EmailJS не настроен
-    }
-    
-    const templateParams = {
-        to_email: 'denis.bakhar@yandex.ru',
-        from_name: formData.name || 'Не указано',
+// Function to send form data to webhook
+function sendToWebhook(formData) {
+    const payload = {
+        name: formData.name || 'Не указано',
         phone: formData.phone,
         message: formData.message || 'Нет комментария',
         form_type: formData.formType || 'Заявка',
@@ -48,15 +17,22 @@ function sendEmailToAdmin(formData) {
         })
     };
     
-    return emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
-        templateParams
-    ).then(function(response) {
-        console.log('Email успешно отправлен!', response.status, response.text);
-    }, function(error) {
-        console.error('Ошибка отправки email:', error);
-        // Не блокируем редирект даже при ошибке отправки
+    return fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    }).then(function(response) {
+        if (!response.ok) {
+            throw new Error('Ошибка отправки данных');
+        }
+        console.log('Данные успешно отправлены на вебхук!', response.status);
+        return response;
+    }).catch(function(error) {
+        console.error('Ошибка отправки на вебхук:', error);
+        // Продолжаем редирект даже при ошибке, чтобы пользователь не остался на странице
+        throw error;
     });
 }
 
@@ -210,9 +186,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Form submitted:', formData);
             
-            // Send email and redirect
-            sendEmailToAdmin(formData).then(function() {
-                // Redirect to thanks page after email is sent (or skipped)
+            // Send to webhook and redirect
+            sendToWebhook(formData).then(function() {
+                // Redirect to thanks page after successful submission
+                window.location.href = 'thanks.html';
+            }).catch(function(error) {
+                // Even on error, redirect to thanks page to avoid user confusion
+                console.error('Error sending form data:', error);
                 window.location.href = 'thanks.html';
             });
         });
@@ -285,9 +265,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Contacts form submitted:', formData);
             
-            // Send email and redirect
-            sendEmailToAdmin(formData).then(function() {
-                // Redirect to thanks page after email is sent (or skipped)
+            // Send to webhook and redirect
+            sendToWebhook(formData).then(function() {
+                // Redirect to thanks page after successful submission
+                window.location.href = 'thanks.html';
+            }).catch(function(error) {
+                // Even on error, redirect to thanks page to avoid user confusion
+                console.error('Error sending form data:', error);
                 window.location.href = 'thanks.html';
             });
         });
@@ -489,14 +473,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Consultation form submitted:', formData);
             
-            // Send email and redirect
-            sendEmailToAdmin(formData).then(function() {
+            // Send to webhook and redirect
+            sendToWebhook(formData).then(function() {
                 // Close modal first
                 if (consultationModal) {
                     consultationModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }
-                // Redirect to thanks page after email is sent (or skipped)
+                // Redirect to thanks page after successful submission
+                window.location.href = 'thanks.html';
+            }).catch(function(error) {
+                // Even on error, redirect to thanks page to avoid user confusion
+                console.error('Error sending form data:', error);
+                if (consultationModal) {
+                    consultationModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
                 window.location.href = 'thanks.html';
             });
         });
@@ -556,14 +548,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Request form submitted:', formData);
             
-            // Send email and redirect
-            sendEmailToAdmin(formData).then(function() {
+            // Send to webhook and redirect
+            sendToWebhook(formData).then(function() {
                 // Close modal first
                 if (requestModal) {
                     requestModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }
-                // Redirect to thanks page after email is sent (or skipped)
+                // Redirect to thanks page after successful submission
+                window.location.href = 'thanks.html';
+            }).catch(function(error) {
+                // Even on error, redirect to thanks page to avoid user confusion
+                console.error('Error sending form data:', error);
+                if (requestModal) {
+                    requestModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
                 window.location.href = 'thanks.html';
             });
         });
