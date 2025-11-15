@@ -390,6 +390,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mainMenu = document.getElementById('mainMenu');
+    
+    if (hamburger && mainMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mainMenu.classList.toggle('active');
+            document.body.style.overflow = mainMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close menu when clicking on menu items
+        const menuItems = mainMenu.querySelectorAll('.menu-item');
+        menuItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mainMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (mainMenu.classList.contains('active') && 
+                !mainMenu.contains(event.target) && 
+                !hamburger.contains(event.target)) {
+                hamburger.classList.remove('active');
+                mainMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
     // Smooth scroll for anchor links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(function(link) {
