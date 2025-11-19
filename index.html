@@ -88,12 +88,15 @@
                 <div class="hero-right">
                     <div class="form-card">
                         <h2 class="form-title">Оставьте заявку и получите скидку 10% на монтаж</h2>
+                        <p class="form-subtitle">Вас это ни к чему не обязывает, но за вами будет зафиксирована скидка 10%</p>
                         <form class="contact-form" id="contactForm">
                             <div class="input-group">
-                                <input type="text" class="input-field" placeholder="Площадь помещения">
+                                <label for="contact-area" class="input-label">Площадь помещения</label>
+                                <input type="text" class="input-field" id="contact-area" placeholder="м²">
                             </div>
                             <div class="input-group">
-                                <input type="tel" class="input-field phone-input" placeholder="+375 (XX) XXX-XX-XX" required>
+                                <label for="contact-phone" class="input-label">Номер телефона</label>
+                                <input type="tel" class="input-field phone-input" id="contact-phone" placeholder="+375 (XX) XXX-XX-XX" required>
                             </div>
                             <button type="submit" class="submit-button">Получить расчёт</button>
                             <p class="additional-text">Инженер свяжется с вами в течение 10 минут</p>
